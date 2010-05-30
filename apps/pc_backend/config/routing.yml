@@ -1,0 +1,3 @@
+opDailyNewsPlugin_index:
+  url:   /opDailyNewsPlugin
+  param: { module: opDailyNewsPlugin, action: index }
