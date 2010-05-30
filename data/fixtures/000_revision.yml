@@ -1,0 +1,4 @@
+SnsConfig:
+  op_daily_news_plugin_current_revision:
+    name: "opDailyNewsPlugin_revision"
+    value: 1
