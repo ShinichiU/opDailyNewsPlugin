@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.9.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>opDailyNewsPlugin</name>
+ <channel>plugins.openpne.jp</channel>
+ <summary>OpenPNE標準のデイリーニュースより高速にメールを配信します</summary>
+ <description>高速デイリーニュースプラグイン
+
+協力者 川原氏には感謝します</description>
+ <lead>
+  <name>Shinichi Urabe</name>
+  <user>urabe</user>
+  <email />
+  <active>yes</active>
+ </lead>
+ <date>2010-05-31</date>
+ <time>02:10:26</time>
+ <version>
+  <release>0.0.1</release>
+  <api>0.0.1</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license>Apache</license>
+ <notes>
+First stable release.
+ </notes>
+ <contents>
+  <dir baseinstalldir="/" name="/">
+   <file baseinstalldir="/" md5sum="372a7f003b3112ce7e15eb014dd573f9" name="apps/pc_backend/config/routing.yml" role="data" />
+   <file baseinstalldir="/" md5sum="931c2dd6e2418cfc52f51fbb3eec221c" name="apps/pc_backend/modules/opDailyNewsPlugin/actions/actions.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="aebd50d468e01312ddc77652e18b235a" name="apps/pc_backend/modules/opDailyNewsPlugin/lib/opMailBodyForm.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="84d7114e3b243dc45ca9999e97801bc7" name="apps/pc_backend/modules/opDailyNewsPlugin/templates/indexSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="cb5c3e582f293561774c34835e7be40d" name="data/fixtures/000_revision.yml" role="data" />
+   <file baseinstalldir="/" md5sum="954e824ae2548eafeff99ca4855b7e7b" name="data/fixtures/001_import_mail_template.yml" role="data" />
+   <file baseinstalldir="/" md5sum="6e275834ff49063397b03e3e937662dd" name="data/migrations/0.0.1/001_initialize.php" role="data" />
+   <file baseinstalldir="/" md5sum="954e824ae2548eafeff99ca4855b7e7b" name="data/migrations/0.0.1/fixtures/001_import_mail_template.yml" role="data" />
+   <file baseinstalldir="/" md5sum="e726e6405ccd2a8f367e86d786bed137" name="lib/task/opBaseDailyNewsSendTask.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="99825e9c9fa970667a402972de5b39e6" name="lib/task/opDailyNewsSendTask.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="25b04d5e2306bbc79824f120dc88d181" name="test/bootstrap/database.php" role="data" />
+   <file baseinstalldir="/" md5sum="2089e76b9d0ae0fd4d222ee37ea68cb5" name="test/bootstrap/functional.php" role="data" />
+   <file baseinstalldir="/" md5sum="4bfa4b596e946c8a283410a2e2ba4315" name="test/bootstrap/unit.php" role="data" />
+   <file baseinstalldir="/" md5sum="8471fade12b0760fab6715ffb8b8f9e4" name="test/fixtures/test_data.yml" role="data" />
+   <file baseinstalldir="/" md5sum="8a98cacfcc151f2808c399543fd52679" name="test/functional/mobile_frontend/skeletonActionsTest.php" role="data" />
+   <file baseinstalldir="/" md5sum="1faa199e87c1ce270e86edee706b37fd" name="test/functional/pc_frontend/skeletonActionsTest.php" role="data" />
+   <file baseinstalldir="/" md5sum="52440ab0abcc01c98551283f1e9942e1" name="test/unit/model/SkeletonTest.php" role="data" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2.3</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.0.1</release>
+    <api>0.0.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2010-05-31</date>
+   <license>Apache</license>
+   <notes>
+First stable release.
+   </notes>
+  </release>
+ </changelog>
+</package>
