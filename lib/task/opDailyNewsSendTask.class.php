@@ -28,18 +28,25 @@ EOF;
     $today = time();
 
     // テンプレートロード
-    $template = $this->getMailTemplate('pc_dailyNewsPlugin', true);
-    $signature = $this->getMailTemplate('pc_signature');
-    if ($signature)
+    $template_pc = $this->getMailTemplate('pc_dailyNewsPlugin', true);
+    $signature_pc = $this->getMailTemplate('pc_signature');
+    if ($signature_pc)
     {
-      $template['template'] =  $template['template']."\n".$signature['template'];
+      $template_pc['template'] =  $template_pc['template']."\n".$signature_pc['template'];
+    }
+    $template_mobile = $this->getMailTemplate('mobile_dailyNewsPlugin', true);
+    $signature_mobile = $this->getMailTemplate('mobile_signature');
+    if ($signature_mobile)
+    {
+      $template_mobile['template'] =  $template_mobile['template']."\n".$signature_mobile['template'];
     }
 
     $helpers = array_unique(array_merge(array('Helper', 'Url', 'Asset', 'Tag', 'Escaping'), sfConfig::get('sf_standard_helpers')));
     sfContext::getInstance()->getConfiguration()->loadHelpers($helpers);
 
     $twigEnvironment = new Twig_Environment(new Twig_Loader_String());
-    $tpl = $twigEnvironment->loadTemplate($template['template']);
+    $tpl_pc = $twigEnvironment->loadTemplate($template_pc['template']);
+    $tpl_mobile = $twigEnvironment->loadTemplate($template_mobile['template']);
 
     sfOpenPNEApplicationConfiguration::registerZend();
 
@@ -66,15 +73,17 @@ EOF;
       }
 
       $address = $this->getMemberPcEmailAddress($memberId[0]);
-
       if (!$address)
       {
         continue;
       }
 
+      $is_mobile = opToolkit::isMobileEmailAddress($address);
+
       $params = array(
+        'op_config' => new opConfig(),
         'member'  => $member,
-        'subject' => $template['title'],
+        'subject' => $is_mobile ? $template_mobile['title'] : $template_pc['title'],
         'communityTopics' => array(),
         'diaries' => $this->getFriendDiaryList($memberId[0]),
         'communityTopics' => $this->getCommunityTopicList($memberId[0]),
@@ -82,7 +91,7 @@ EOF;
         'base_url' => sfConfig::get('op_base_url'),
       );
 
-      $body = $tpl->render($params);
+      $body = $is_mobile ? $tpl_mobile->render($params) : $tpl_pc->render($params);
 
       try
       {

@@ -66,6 +66,13 @@ class opBaseDailyNewsSendTask extends opBaseSendMailTask
     {
       return $memberConfig['value'];
     }
+
+    $memberConfig = $this->connection->fetchRow("SELECT value FROM member_config WHERE name = 'mobile_address' AND member_id = ?", array($memberId));
+    if ($memberConfig)
+    {
+      return $memberConfig['value'];
+    }
+
     return false;
   }
 
